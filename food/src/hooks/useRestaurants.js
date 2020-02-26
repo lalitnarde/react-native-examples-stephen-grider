@@ -18,6 +18,7 @@ export default () => {
       console.log(response.data.restaurants);
       setResults(response.data.restaurants);
     } catch (err) {
+      console.log(err);
       setErrorMsg("Something went wrong...");
     }
   };

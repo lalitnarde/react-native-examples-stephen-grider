@@ -4,7 +4,15 @@ import { View, Image, Text, StyleSheet } from "react-native";
 const RestaurantDetails = ({ restaurant }) => {
   return (
     <View style={styles.containerStyle}>
-      <Image style={styles.imageStyle} source={{ uri: restaurant.thumb }} />
+      <Image
+        style={styles.imageStyle}
+        source={{
+          uri:
+            restaurant.thumb === ""
+              ? "https://media.gettyimages.com/photos/authentic-indian-food-picture-id639389404?s=612x612"
+              : restaurant.thumb
+        }}
+      />
       <Text style={styles.nameStyle}>{restaurant.name}</Text>
       <Text style={styles.reviewsStyle}>
         {restaurant.user_rating.aggregate_rating} Stars,{" "}

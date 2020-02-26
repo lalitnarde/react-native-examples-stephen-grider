@@ -6,6 +6,7 @@ import useRestaurants from "./hooks/useRestaurants";
 import RestaurantList from "./components/RestaurantList";
 
 const SearchScreen = () => {
+  //   console.log(props);
   const [term, setTerm] = useState("");
   const [searchApi, results, errorMsg] = useRestaurants();
 
@@ -23,7 +24,6 @@ const SearchScreen = () => {
         onTermSubmit={() => searchApi(term)}
       />
       {errorMsg ? <Text>{errorMsg}</Text> : null}
-      <Text>We have found {results.length} results.</Text>
       <ScrollView>
         {filterRestaurantsByPrice(1).length > 0 ? (
           <RestaurantList
@@ -44,7 +44,10 @@ const SearchScreen = () => {
           />
         ) : null}
         {filterRestaurantsByPrice(4).length > 0 ? (
-          <RestaurantList results={filterRestaurantsByPrice(4)} title="High" />
+          <RestaurantList
+            results={filterRestaurantsByPrice(4)}
+            title="High"
+          />
         ) : null}
         {filterRestaurantsByPrice(5).length > 0 ? (
           <RestaurantList
